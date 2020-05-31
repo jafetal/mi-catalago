@@ -14,14 +14,16 @@ export class ListComponent implements OnInit {
   closeResult = '';
   page: number;
   pageSize: number;
+  colsize: number;
 
   constructor(private modalService: NgbModal,private autoService: AutosService) { }
   
   ngOnInit(): void {
     this.autoService.getAutos().subscribe((response)=>{
       this.autos = response.data;
-      this.page = +sessionStorage.getItem('currentPage');
-      this.pageSize = 10;
+      this.page = 1;
+      this.pageSize = 5;
+      this.colsize = this.autos.length * 2
     })
     
     

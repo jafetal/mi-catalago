@@ -19,7 +19,7 @@
                 <td>{{ auto.modelos }}</td>
                 <td>{{ auto.descripcion }}</td>
                 <td><img src="../../assets/images/trash-solid.png"></td>
-                <td><img src="../../assets/images/edit-solid.png"></td>
+                <td (click)="openModalEditar(auto)"><img src="../../assets/images/edit-solid.png"></td>
             </tr>
         </tbody>
     </table>

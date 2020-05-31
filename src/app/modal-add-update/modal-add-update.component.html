@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{accion}} Automóvil</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+      <div class="form-group">
+        <label for="Marca">Marca</label>
+        <input type="text" class="form-control" id="Marca" placeholder="Agrega la Marca" value="{{auto.marca}}">
+      </div>
+      <div class="form-group">
+        <label for="Marca">Submarca</label>
+        <input type="text" class="form-control" id="Marca" placeholder="Agrega la Submarca" value="{{auto.submarca}}">
+      </div>
+      <div class="form-group">
+        <label for="Marca">Modelos</label>
+        <input type="text" disabled class="form-control" id="Marca" placeholder="Agrega el Modelo" value="{{auto.modelos}}">
+      </div>
+      <div class="form-group">
+        <label for="Marca">Descripción</label>
+        <input type="text" class="form-control" id="Marca" placeholder="Agrega la Descripción" value="{{auto.descripcion}}">
+      </div>
+      
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary" (click)="activeModal.close('Save click')">Guardar</button>  
+</div>
