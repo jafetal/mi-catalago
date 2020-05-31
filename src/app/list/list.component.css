@@ -2,16 +2,16 @@
     background-color: #ececec;
     display: flex;
     width: 100%;
-    justify-content: center;
-    align-content: center;
+    justify-content: start;
+    align-content:space-between;
     align-items: center;
     flex-direction: column;
 }
 .lelement{    
-    background-color: #30475e;
-    color: #ffffff;
+    background-color: #c0c0c0;
+    color: #000000;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     min-width: 500px;
 
@@ -25,4 +25,12 @@
 }
 .texto{
     font-size: 20px;
+}
+.icon {
+    margin: 2px 5px 2px 50px;
+    cursor: pointer;
+}
+.informacion{
+    font-family:'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-right: 30px;
 }

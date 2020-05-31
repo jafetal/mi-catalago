@@ -1,7 +1,7 @@
 <div class="list">
     <div *ngFor='let auto of autos' class="lelement">
-        <div (click)="open(infoAuto,auto)"><img src="../../assets/images/eye.png"></div>
-        <div>{{auto.submarca}}  {{auto.modelo}}</div>
+        <div (click)="open(infoAuto,auto)" class="icon"><img src="../../assets/images/eye.png"></div>
+        <div class="informacion">{{auto.submarca}}  {{auto.modelos}}</div>
     </div>
 </div>
 
@@ -17,7 +17,7 @@
         <div class="form-group texto">
             <div>Marca: {{autoSeleccionado.marca}}</div>
             <div>Submarca: {{autoSeleccionado.submarca}}</div>
-            <div>Modelo: {{autoSeleccionado.modelo}}</div>
+            <div>Modelo: {{autoSeleccionado.modelos}}</div>
             <div>Descripcion: {{autoSeleccionado.descripcion}}</div>
         </div>
       </form>
