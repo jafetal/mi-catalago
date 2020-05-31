@@ -12,13 +12,19 @@ export class ListComponent implements OnInit {
   autos: Automovil[];
   autoSeleccionado:Automovil;
   closeResult = '';
+  page: number;
+  pageSize: number;
 
   constructor(private modalService: NgbModal,private autoService: AutosService) { }
   
   ngOnInit(): void {
     this.autoService.getAutos().subscribe((response)=>{
       this.autos = response.data;
+      this.page = +sessionStorage.getItem('currentPage');
+      this.pageSize = 10;
     })
+    
+    
   }
   
   open(content,auto) {

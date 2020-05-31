@@ -2,21 +2,30 @@
     <div class="pad"><table class="table table-striped">
         <thead>
             <tr>
+            <th scope="col">Id</th>
             <th scope="col">Marca</th>
             <th scope="col">Submarca</th>
             <th scope="col">Modelo</th>
             <th scope="col">Descripcion</th>
-            <th scope="col">Fecha</th>
+            <th></th>
+            <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let auto of autos;">
-            <td>{{ auto.marca }}</td>
-            <td>{{ auto.submarca }}</td>
-            <td>{{ auto.modelos }}</td>
-            <td>{{ auto.descripcion }}</td>
-            <td>{{ auto.fecha_registro}}</td>
+            <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;">
+                <td>{{ auto._id }}</td>
+                <td>{{ auto.marca }}</td>
+                <td>{{ auto.submarca }}</td>
+                <td>{{ auto.modelos }}</td>
+                <td>{{ auto.descripcion }}</td>
+                <td><img src="../../assets/images/trash-solid.png"></td>
+                <td><img src="../../assets/images/edit-solid.png"></td>
             </tr>
         </tbody>
-    </table></div>
+    </table>
+    </div><div>
+        <ngb-pagination
+        [(page)]="page"
+        [collectionSize]="autos?.length"
+        aria-label="Default pagination"></ngb-pagination></div>
 </div>

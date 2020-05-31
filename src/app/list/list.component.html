@@ -1,8 +1,13 @@
 <div class="list">
-    <div *ngFor='let auto of autos' class="lelement">
+    <div *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;" class="lelement">
         <div (click)="open(infoAuto,auto)" class="icon"><img src="../../assets/images/eye.png"></div>
         <div class="informacion">{{auto.submarca}}  {{auto.modelos}}</div>
     </div>
+    <div>
+      <ngb-pagination
+      [(page)]="page"
+      [collectionSize]="autos?.length"
+      aria-label="Default pagination"></ngb-pagination></div>
 </div>
 
 <ng-template #infoAuto let-modal>
