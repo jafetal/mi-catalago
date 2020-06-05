@@ -3,27 +3,60 @@
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
-</div>
+</div><form #formAutos = "ngForm" (ngSubmit)="onSubmit()">
 <div class="modal-body">
-  <form #formAutos = "ngForm">
+  
     <div class="form-group">
       <label for="Marca">Marca</label>
-      <input type="text" class="form-control" id="marca" placeholder="Agrega la Marca" [(ngModel)]="auto.marca" name="marca">
+      <input type="text" class="form-control" id="marca" placeholder="Agrega la Marca" [(ngModel)]="auto.marca" name="marca" #marca="ngModel" required 
+      minlength="4">
+    </div>
+
+    <div *ngIf="marca.invalid && (marca.dirty || marca.touched)">
+      <div *ngIf="marca.errors.minlength" class="alert alert-danger">La marca debe tener mínimo 4 caractéres</div>
+      <div *ngIf="marca.errors.required" class="alert alert-danger">La marca es requerida</div>
+    </div>
+
+    <div class="form-group">
+      <label for="submarca">Submarca</label>
+      <input type="text" class="form-control" id="submarca" placeholder="Agrega la Submarca" [(ngModel)]="auto.submarca" name="submarca" #submarca="ngModel"
+      required minlength="4">
+    </div>
+    <div *ngIf="submarca.invalid && (submarca.dirty || submarca.touched)">
+      <div *ngIf="submarca.errors.minlength" class="alert alert-danger">La submarca debe tener mínimo 4 caractéres</div>
+      <div *ngIf="submarca.errors.required" class="alert alert-danger">La submarca es requerida</div>
+    </div>
+
+    Modelos:
+    <div class="form-group">
+      <label for="mine">Desde: </label>
+      <input type="number" class="form-control boxn" min="2000" max="2020" step="1" id="mine" name="mine" [(ngModel)]="min" #mine="ngModel" [appRangoModelos]>
+    </div>
+    <div *ngIf="mine.invalid">
+      <div *ngIf="mine.errors.min || mine.errors.max" class="alert alert-danger">Limite entre 2000 y 2010</div>
     </div>
     <div class="form-group">
-      <label for="Marca">Submarca</label>
-      <input type="text" class="form-control" id="submarca" placeholder="Agrega la Submarca" [(ngModel)]="auto.submarca" name="submarca">
+      <label for="mine">Hasta: </label>
+      <input type="number" class="form-control boxn" min="2000" max="2020" step="1" id="maxe" name="maxe" [(ngModel)]="max" #maxe="ngModel">
     </div>
-    <div class="form-group">
-      <label for="Marca">Modelos</label>
-      <input type="text" disabled class="form-control" id="modelos" placeholder="Agrega el Modelo" [(ngModel)]="auto.modelos" name="modelos">
+    <div *ngIf="maxe.invalid">
+      <div *ngIf="maxe.errors.min || maxe.errors.max" class="alert alert-danger">Limite entre 2000 y 2010</div>
     </div>
+    <!--
+      <div *ngIf="maxe.invalid || mine.invalid">
+        <div *ngIf="maxe.invalid.appRangoModelos || mine.invalid.appRangoModelos" class="alert alert-danger">El segundo numero no puede ser menor al primero</div>
+      </div>
+    -->
+    
+
     <div class="form-group">
-      <label for="Marca">Descripción</label>
+      <label for="descripcion">Descripción</label>
       <input type="text" class="form-control" id="descripcion" placeholder="Agrega la Descripción" [(ngModel)]="auto.descripcion" name="descripcion">
     </div>
-  </form>    
+    
+   
 </div>
 <div class="modal-footer">
-    <button type="submit" class="btn btn-primary" (click)="activeModal.close(auto)">Guardar</button>  
+    <button type="submit" class="btn btn-primary" [disabled]="!formAutos.form.valid">Guardar</button>  
 </div>
+</form>  

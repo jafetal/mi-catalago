@@ -1,3 +1,15 @@
 body,html{
     margin: 0;
 }
+.ng-valid[required] {
+    border-left: 5px solid green;
+}
+.ng-valid[min] {
+    border-left: 5px solid green;
+}
+.ng-valid[max] {
+    border-left: 5px solid green;
+}
+.ng-invalid:not(form) {
+    border-left: 5px solid red;
+}
