@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './table/table.component';
 import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
+import { FormsModule } from '@angular/forms';
+import { ModalConfirmActionComponent } from './modal-confirm-action/modal-confirm-action.component';
 
 
 @NgModule({
@@ -21,13 +23,15 @@ import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.com
     ListComponent,
     TableComponent,
     NotfoundpageComponent,
-    ModalAddUpdateComponent
+    ModalAddUpdateComponent,
+    ModalConfirmActionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

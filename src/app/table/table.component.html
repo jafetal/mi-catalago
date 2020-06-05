@@ -1,4 +1,7 @@
 <div class="pri">
+    <div class="btnss">
+        <button type="button" class="btn btn-dark" (click)="openModalAgregar()">Agregar +<i class="fa fa-plus"></i></button>
+    </div>
     <div class="pad"><table class="table table-striped">
         <thead>
             <tr>
@@ -18,7 +21,7 @@
                 <td>{{ auto.submarca }}</td>
                 <td>{{ auto.modelos }}</td>
                 <td>{{ auto.descripcion }}</td>
-                <td><img src="../../assets/images/trash-solid.png"></td>
+                <td (click)="openModalEliminar(auto)"><img src="../../assets/images/trash-solid.png"></td>
                 <td (click)="openModalEditar(auto)"><img src="../../assets/images/edit-solid.png"></td>
             </tr>
         </tbody>

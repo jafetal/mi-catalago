@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{accion}} Automóvil</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+  <form #formAutos = "ngForm">
+    <div><p>Seguro que quieres eliminar <span class="text-dark">{{auto.descripcion}}?</span></p>
+    <p>Esta acción no se pude revertir...</p></div>
+  </form>    
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-secondary" (click)="activeModal.dismiss('cancel click')">Cancelar</button>
+    <button type="submit" class="btn btn-danger" (click)="activeModal.close(auto)">Eliminar</button> 
+</div>

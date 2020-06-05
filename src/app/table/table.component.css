@@ -21,3 +21,10 @@ img{
     margin: 5px;
     cursor: pointer;
 }
+.btnss{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display:flex;
+    justify-content: start;
+    width: 80%;
+}
